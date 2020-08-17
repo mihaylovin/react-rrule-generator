@@ -1,6 +1,6 @@
 const computeEndOnDate = (data, rruleObj) => {
   if (!rruleObj.until) {
-    return data.end.onDate.date;
+    return data.endRepeat.onDate.date;
   }
 
   return rruleObj.until;

@@ -79,7 +79,7 @@ export default {
     },
   },
   end: {
-    label: 'End',
+    label: 'End Repeat',
     tooltip: 'Datetime picker for end on date',
     never: 'Never',
     after: 'After',

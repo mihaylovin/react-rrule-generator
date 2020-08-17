@@ -4,7 +4,7 @@ import { cloneDeep, set } from 'lodash';
 
 import Start from './Start/index';
 import Repeat from './Repeat/index';
-import End from './End/index';
+import EndRepeat from './EndRepeat/index';
 import computeRRuleToString from '../utils/computeRRule/toString/computeRRule';
 import computeRRuleFromString from '../utils/computeRRule/fromString/computeRRule';
 import configureInitialState from '../utils/configureInitialState';
@@ -56,7 +56,7 @@ class ReactRRuleGenerator extends PureComponent {
       data: {
         start,
         repeat,
-        end,
+        endRepeat,
         options,
         error,
       },
@@ -99,12 +99,12 @@ class ReactRRuleGenerator extends PureComponent {
           </div>
 
           {
-            !options.hideEnd && (
+            !options.hideEndRepeat && (
               <div>
                 <hr />
-                <End
-                  id={`${id}-end`}
-                  end={end}
+                <EndRepeat
+                  id={`${id}-end-repeat`}
+                  endRepeat={endRepeat}
                   handleChange={this.handleChange}
                   translations={this.props.translations}
                 />
@@ -124,9 +124,9 @@ ReactRRuleGenerator.propTypes = {
     frequency: PropTypes.arrayOf(PropTypes.oneOf(['Yearly', 'Monthly', 'Weekly', 'Daily', 'Hourly'])),
     yearly: PropTypes.oneOf(['on', 'on the']),
     monthly: PropTypes.oneOf(['on', 'on the']),
-    end: PropTypes.arrayOf(PropTypes.oneOf(['Never', 'After', 'On date'])),
+    endRepeat: PropTypes.arrayOf(PropTypes.oneOf(['Never', 'After', 'On date'])),
     hideStart: PropTypes.bool,
-    hideEnd: PropTypes.bool,
+    hideEndRepeat: PropTypes.bool,
     hideError: PropTypes.bool,
     weekStartsOnSunday: PropTypes.bool,
   }),

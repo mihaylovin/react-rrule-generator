@@ -79,7 +79,7 @@ export default {
     },
   },
   end: {
-    label: 'Ende',
+    label: 'Ende des Wiederholens',
     tooltip: 'Ende des Zeitplans',
     never: 'Niemals',
     after: 'Nach',

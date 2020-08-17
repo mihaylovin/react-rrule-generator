@@ -8,13 +8,13 @@ import computeOptions from './computeOptions';
 const computeRRule = ({
   start,
   repeat,
-  end,
+  endRepeat,
   options,
 }) => {
   const rruleObject = {
     ...computeStart(start),
     ...computeRepeat(repeat),
-    ...computeEnd(end),
+    ...computeEnd(endRepeat),
     ...computeOptions(options),
   };
   const rrule = new RRule(rruleObject);

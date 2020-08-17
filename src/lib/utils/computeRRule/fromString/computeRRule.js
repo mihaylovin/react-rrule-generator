@@ -87,14 +87,14 @@ const computeRRule = (data, rrule) => {
           interval: computeHourlyInterval(data, rruleObj),
         },
       },
-      end: {
-        ...data.end,
+      endRepeat: {
+        ...data.endRepeat,
         mode: computeEndMode(data, rruleObj),
         after: computeEndAfter(data, rruleObj),
         onDate: {
           date: moment(computeEndOnDate(data, rruleObj)).format(DATE_TIME_FORMAT),
           options: {
-            ...data.end.onDate.options,
+            ...data.endRepeat.onDate.options,
             weekStartsOnSunday: computeWeekStartDay(data, rruleObj),
           },
         },
