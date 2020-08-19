@@ -1,17 +1,16 @@
 import moment from 'moment';
 
-const computeEnd = ({ mode, after, onDate: { date } }) => {
-  const end = {};
-
-  if (mode === 'After') {
-    end.count = after;
+const computeEnd = ({ onDate: { date } }) => {
+  // verify that incoming date is valid
+  // by seeing if it can be converted into a moment object.
+  // if not, then create a new date
+  if (!moment.isMoment(moment(date))) {
+    date = new Date().setMilliseconds(0);
   }
 
-  if (mode === 'On date') {
-    end.until = moment(date).format();
-  }
-
-  return end;
+  return {
+    dtend: moment(date).toDate(),
+  };
 };
 
 export default computeEnd;

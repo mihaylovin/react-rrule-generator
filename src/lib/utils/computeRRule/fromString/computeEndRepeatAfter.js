@@ -1,4 +1,4 @@
-const computeEndAfter = (data, rruleObj) => {
+const computeEndRepeatAfter = (data, rruleObj) => {
   if (!rruleObj.count && rruleObj.count !== 0) {
     return data.endRepeat.after;
   }
@@ -6,4 +6,4 @@ const computeEndAfter = (data, rruleObj) => {
   return rruleObj.count;
 };
 
-export default computeEndAfter;
+export default computeEndRepeatAfter;

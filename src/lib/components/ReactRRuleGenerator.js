@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { cloneDeep, set } from 'lodash';
 
 import Start from './Start/index';
+import End from './End/index';
 import Repeat from './Repeat/index';
 import EndRepeat from './EndRepeat/index';
 import computeRRuleToString from '../utils/computeRRule/toString/computeRRule';
@@ -45,7 +46,7 @@ class ReactRRuleGenerator extends PureComponent {
     const newData = cloneDeep(this.state.data);
     set(newData, target.name, target.value);
     const rrule = computeRRuleToString(newData);
-
+    console.log(newData);
     this.setState({ data: newData });
     this.props.onChange(rrule);
   };
@@ -55,6 +56,7 @@ class ReactRRuleGenerator extends PureComponent {
       id,
       data: {
         start,
+        end,
         repeat,
         endRepeat,
         options,
@@ -88,7 +90,15 @@ class ReactRRuleGenerator extends PureComponent {
               </div>
             )
           }
-
+          <div>
+            <End
+              id={`${id}-end`}
+              end={end}
+              handleChange={this.handleChange}
+              translations={this.props.translations}
+            />
+            <hr />
+          </div>
           <div>
             <Repeat
               id={`${id}-repeat`}

@@ -28,7 +28,7 @@ const EndRepeat = ({
             className="col-form-label"
           >
             <strong>
-              {translateLabel(translations, 'end.label')}
+              {translateLabel(translations, 'endRepeat.label')}
             </strong>
           </label>
         </div>
@@ -40,9 +40,9 @@ const EndRepeat = ({
             value={mode}
             onChange={handleChange}
           >
-            {isOptionAvailable('Never') && <option value="Never">{translateLabel(translations, 'end.never')}</option>}
-            {isOptionAvailable('After') && <option value="After">{translateLabel(translations, 'end.after')}</option>}
-            {isOptionAvailable('On date') && <option value="On date">{translateLabel(translations, 'end.on_date')}</option>}
+            {isOptionAvailable('Never') && <option value="Never">{translateLabel(translations, 'endRepeat.never')}</option>}
+            {isOptionAvailable('After') && <option value="After">{translateLabel(translations, 'endRepeat.after')}</option>}
+            {isOptionAvailable('On date') && <option value="On date">{translateLabel(translations, 'endRepeat.on_date')}</option>}
           </select>
         </div>
 

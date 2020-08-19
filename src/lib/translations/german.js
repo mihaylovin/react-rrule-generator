@@ -47,6 +47,10 @@ export default {
     label: 'Start',
     tooltip: 'Startdatum des Zeitplans',
   },
+  end: {
+    label: 'Ende',
+    tooltip: 'Enddatum des Zeitplans',
+  },
   repeat: {
     label: 'Wiederholen',
     yearly: {
@@ -78,7 +82,7 @@ export default {
       hours: 'Stunde(n)',
     },
   },
-  end: {
+  endRepeat: {
     label: 'Ende des Wiederholens',
     tooltip: 'Ende des Zeitplans',
     never: 'Niemals',

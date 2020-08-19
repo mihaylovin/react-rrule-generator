@@ -22,7 +22,7 @@ const EndAfter = ({
         />
       </div>
       <div className="col-9 col-sm-6">
-        {translateLabel(translations, 'end.executions')}
+        {translateLabel(translations, 'endRepeat.executions')}
       </div>
     </div>
   </div>

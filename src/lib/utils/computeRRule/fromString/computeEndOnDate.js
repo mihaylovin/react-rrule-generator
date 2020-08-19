@@ -1,9 +1,9 @@
 const computeEndOnDate = (data, rruleObj) => {
-  if (!rruleObj.until) {
-    return data.endRepeat.onDate.date;
-  }
-
-  return rruleObj.until;
-};
-
-export default computeEndOnDate;
+    if (!rruleObj.dtend) {
+      return data.end.onDate.date;
+    }
+  
+    return rruleObj.dtend;
+  };
+  export default computeEndOnDate;
+  

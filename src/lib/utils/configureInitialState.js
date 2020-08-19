@@ -2,18 +2,27 @@ import moment from 'moment';
 import { isEmpty, uniqueId } from 'lodash';
 
 import computeRRuleToString from './computeRRule/toString/computeRRule';
-import { DATE_TIME_FORMAT } from '../constants/index';
+import { DATE_TIME_FORMAT, DATE_FORMAT } from '../constants/index';
 
 const configureState = (config = {}, calendarComponent, id) => {
   const configureFrequency = () => (config.repeat ? config.repeat[0] : 'Yearly');
   const configureYearly = () => (config.yearly || 'on');
   const configureMonthly = () => (config.monthly || 'on');
-  const configureEnd = () => (config.end ? config.end[0] : 'Never');
+  const configureEndRepeat = () => (config.endRepeat ? config.endRepeat[0] : 'Never');
   const configureHideStart = () => (typeof config.hideStart === 'undefined' ? true : config.hideStart);
   const uniqueRruleId = isEmpty(id) ? uniqueId('rrule-') : id;
 
   const data = {
     start: {
+      onDate: {
+        date: moment().format(DATE_TIME_FORMAT),
+        options: {
+          weekStartsOnSunday: config.weekStartsOnSunday,
+          calendarComponent,
+        },
+      },
+    },
+    end: {
       onDate: {
         date: moment().format(DATE_TIME_FORMAT),
         options: {
@@ -79,17 +88,17 @@ const configureState = (config = {}, calendarComponent, id) => {
       },
     },
     endRepeat: {
-      mode: configureEnd(),
+      mode: configureEndRepeat(),
       after: 1,
       onDate: {
-        date: moment().format(DATE_TIME_FORMAT),
+        date: moment().format(DATE_FORMAT),
         options: {
           weekStartsOnSunday: config.weekStartsOnSunday,
           calendarComponent,
         },
       },
       options: {
-        modes: config.end,
+        modes: config.endRepeat,
       },
     },
     options: {

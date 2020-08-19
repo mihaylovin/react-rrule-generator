@@ -1,4 +1,4 @@
-const computeEndMode = (data, rruleObj) => {
+const computeEndRepeatMode = (data, rruleObj) => {
   if (rruleObj.count || rruleObj.count === 0) {
     return 'After';
   }
@@ -10,4 +10,4 @@ const computeEndMode = (data, rruleObj) => {
   return 'Never';
 };
 
-export default computeEndMode;
+export default computeEndRepeatMode;

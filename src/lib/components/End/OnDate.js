@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import DateTime from 'react-datetime';
-import 'moment/min/locales';
 
-import { DATE_FORMAT } from '../../constants/index';
+import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
 
 const EndOnDate = ({
@@ -17,12 +16,12 @@ const EndOnDate = ({
   translations
 }) => {
   const CustomCalendar = options.calendarComponent;
-
   const locale = options.weekStartsOnSunday ? 'en-ca' : 'en-gb';
   const calendarAttributes = {
-    'aria-label': translateLabel(translations, 'endRepeat.tooltip'),
+    'aria-label': translateLabel(translations, 'end.tooltip'),
     value: date,
-    dateFormat: DATE_FORMAT,
+    dateFormat: DATE_TIME_FORMAT.split(" ")[0],
+    timeFormat: DATE_TIME_FORMAT.split(" ")[1],
     locale,
     readOnly: true,
   };
@@ -38,7 +37,7 @@ const EndOnDate = ({
               const editedEvent = {
                 target: {
                   value: event.target.value,
-                  name: 'endRepeat.onDate.date',
+                  name: 'end.onDate.date',
                 },
               };
 
@@ -50,12 +49,11 @@ const EndOnDate = ({
             inputProps={
               {
                 id: `${id}-datetime`,
-                name: 'endRepeat.onDate.date',
+                name: 'end.onDate.date',
                 readOnly: true,
               }
             }
             locale={translateLabel(translations, 'locale')}
-            timeFormat={false}
             viewMode="days"
             closeOnSelect
             closeOnTab
@@ -63,8 +61,8 @@ const EndOnDate = ({
             onChange={(inputDate) => {
               const editedEvent = {
                 target: {
-                  value: moment(inputDate).format(DATE_FORMAT),
-                  name: 'endRepeat.onDate.date',
+                  value: moment(inputDate).format(DATE_TIME_FORMAT),
+                  name: 'end.onDate.date',
                 },
               };
 

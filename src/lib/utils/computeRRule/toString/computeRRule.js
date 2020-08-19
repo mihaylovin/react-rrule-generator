@@ -1,24 +1,29 @@
-import RRule from 'rrule';
+import Vevent from '../../../vevent/';
 
 import computeStart from './computeStart';
 import computeRepeat from './computeRepeat';
-import computeEnd from './computeEnd';
+import computeEndRepeat from './computeEndRepeat';
 import computeOptions from './computeOptions';
+import computeEnd from './computeEnd';
 
 const computeRRule = ({
   start,
+  end,
   repeat,
   endRepeat,
   options,
 }) => {
-  const rruleObject = {
+  const veventObject = {
     ...computeStart(start),
-    ...computeRepeat(repeat),
-    ...computeEnd(endRepeat),
-    ...computeOptions(options),
+    ...computeEnd(end),
+    rrule: {
+      ...computeRepeat(repeat),
+      ...computeEndRepeat(endRepeat),
+      ...computeOptions(options)
+    },
   };
-  const rrule = new RRule(rruleObject);
-  return rrule.toString();
+  const vevent = new Vevent(veventObject);
+  return vevent.toString();
 };
 
 export default computeRRule;
