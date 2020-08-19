@@ -16,8 +16,12 @@ class Vevent {
     }
 
     toString() {
+        const str = "BEGIN:VEVENT" + "\r\n" + 
+                    this.dtend.toString() + "\r\n" + 
+                    this.rr.toString(); + "\r\n" + 
+                    "END:VEVENT";
 
-        return this.dtend.toString() + "\r\n" + this.rr.toString();
+        return str;
     }
 }
 
