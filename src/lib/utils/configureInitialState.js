@@ -31,6 +31,7 @@ const configureState = (config = {}, calendarComponent, id) => {
         },
       },
     },
+    summary: "",
     repeat: {
       frequency: configureFrequency(),
       yearly: {
@@ -54,6 +55,7 @@ const configureState = (config = {}, calendarComponent, id) => {
         on: {
           day: 1,
         },
+        days: [],
         onThe: {
           day: 'Monday',
           which: 'First',

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RepeatMonthlyOn from './On';
+import RepeatMonthlyOn from './OnDays';
 import RepeatMonthlyOnThe from './OnThe';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
@@ -11,6 +11,7 @@ const RepeatMonthly = ({
     mode,
     interval,
     on,
+    days,
     onThe,
     options,
   },
@@ -46,6 +47,7 @@ const RepeatMonthly = ({
           id={`${id}-on`}
           mode={mode}
           on={on}
+          days={days}
           hasMoreModes={!isTheOnlyOneMode('on')}
           handleChange={handleChange}
           translations={translations}

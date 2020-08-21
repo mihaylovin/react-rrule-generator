@@ -51,6 +51,9 @@ export default {
     label: 'End',
     tooltip: 'Datetime picker for end on date',
   },
+  summary: {
+    label: "Summary"
+  },
   repeat: {
     label: 'Repeat',
     yearly: {

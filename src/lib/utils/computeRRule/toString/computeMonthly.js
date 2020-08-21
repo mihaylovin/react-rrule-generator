@@ -6,12 +6,12 @@ import computeMonthlyOnThe from './computeMonthlyOnThe';
 const computeMonthly = ({
   mode,
   interval,
-  on,
+  days,
   onThe,
 }) => ({
   freq: RRule.MONTHLY,
   interval,
-  ...(mode === 'on' ? computeMonthlyOn(on) : computeMonthlyOnThe(onThe)),
+  ...(mode === 'on' ? computeMonthlyOn(days) : computeMonthlyOnThe(onThe)),
 });
 
 export default computeMonthly;

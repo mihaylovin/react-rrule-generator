@@ -51,6 +51,9 @@ export default {
     label: 'Ende',
     tooltip: 'Enddatum des Zeitplans',
   },
+  summary: {
+    label: "Summary"
+  },
   repeat: {
     label: 'Wiederholen',
     yearly: {

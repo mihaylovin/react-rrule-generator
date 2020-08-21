@@ -4,6 +4,7 @@ import moment from 'moment';
 import { DATE_TIME_FORMAT, DATE_FORMAT } from '../../../constants/index';
 import computeStartOnDate from './computeStartOnDate';
 import computeEndOnDate from './computeEndOnDate';
+import computeSummary from './computeSummary';
 import computeFrequency from './computeFrequency';
 import computeYearlyMode from './computeYearlyMode';
 import computeYearlyOnMonth from './computeYearlyOnMonth';
@@ -56,6 +57,7 @@ const computeRRule = (data, rrule) => {
           },
         },
       },
+      summary: computeSummary(data, rruleObj),
       repeat: {
         ...data.repeat,
         frequency: computeFrequency(data, rruleObj),
@@ -76,9 +78,7 @@ const computeRRule = (data, rrule) => {
           ...data.repeat.monthly,
           mode: computeMonthlyMode(data, rruleObj),
           interval: computeMonthlyInterval(data, rruleObj),
-          on: {
-            day: computeMonthlyOnDay(data, rruleObj),
-          },
+          days: computeMonthlyOnDay(data, rruleObj),
           onThe: {
             day: computeMonthlyOnTheDay(data, rruleObj),
             which: computeMonthlyOnTheWhich(data, rruleObj),

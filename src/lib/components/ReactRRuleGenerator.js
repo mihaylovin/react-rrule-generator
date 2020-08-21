@@ -12,6 +12,7 @@ import configureInitialState from '../utils/configureInitialState';
 import translateLabel from '../utils/translateLabel';
 import translations from '../translations';
 import '../styles/index.css';
+import Summary from './Summary/index';
 
 class ReactRRuleGenerator extends PureComponent {
   // compute default view based on user's config
@@ -46,7 +47,7 @@ class ReactRRuleGenerator extends PureComponent {
     const newData = cloneDeep(this.state.data);
     set(newData, target.name, target.value);
     const rrule = computeRRuleToString(newData);
-    console.log(newData);
+    
     this.setState({ data: newData });
     this.props.onChange(rrule);
   };
@@ -58,6 +59,7 @@ class ReactRRuleGenerator extends PureComponent {
         start,
         end,
         repeat,
+        summary,
         endRepeat,
         options,
         error,
@@ -77,19 +79,26 @@ class ReactRRuleGenerator extends PureComponent {
 
         <div className="px-0 pt-3 border rounded">
 
-          {
-            !options.hideStart && (
-              <div>
-                <Start
-                  id={`${id}-start`}
-                  start={start}
-                  handleChange={this.handleChange}
-                  translations={this.props.translations}
-                />
-                <hr />
-              </div>
-            )
-          }
+        <div>
+            <Summary
+              id={`${id}-summary`}
+              summary={summary}
+              handleChange={this.handleChange}
+              translations={this.props.translations}
+            />
+            <hr />
+          </div>
+
+          <div>
+            <Start
+              id={`${id}-start`}
+              start={start}
+              handleChange={this.handleChange}
+              translations={this.props.translations}
+            />
+            <hr />
+          </div>
+
           <div>
             <End
               id={`${id}-end`}

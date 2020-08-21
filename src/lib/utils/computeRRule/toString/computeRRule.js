@@ -5,10 +5,12 @@ import computeRepeat from './computeRepeat';
 import computeEndRepeat from './computeEndRepeat';
 import computeOptions from './computeOptions';
 import computeEnd from './computeEnd';
+import computeSummary from './computeSummary';
 
 const computeRRule = ({
   start,
   end,
+  summary,
   repeat,
   endRepeat,
   options,
@@ -16,6 +18,7 @@ const computeRRule = ({
   const veventObject = {
     ...computeStart(start),
     ...computeEnd(end),
+    ...computeSummary(summary),
     rrule: {
       ...computeRepeat(repeat),
       ...computeEndRepeat(endRepeat),

@@ -18,11 +18,20 @@ class Vevent {
 
     toString() {
         const str = "BEGIN:VEVENT" + "\r\n" + 
+                    this.summary.toString() + "\r\n" +
                     this.dtend.toString() + "\r\n" + 
                     this.rr.toString() + "\r\n" + 
                     "END:VEVENT";
 
         return str;
+    }
+
+    toVCalendarString() {
+        const vcalendarStr = "BEGIN:VCALENDAR" + "\r\n" + 
+                             this.toString() + "\r\n" +
+                             "END:VCALENDAR";
+
+        return vcalendarStr;
     }
 }
 
