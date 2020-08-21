@@ -1,5 +1,6 @@
 import RRule from 'rrule';
-import Dtend from './Dtend'
+import Dtend from './Dtend';
+import Summary from './Summary';
 
 class Vevent {
     constructor({
@@ -18,7 +19,7 @@ class Vevent {
     toString() {
         const str = "BEGIN:VEVENT" + "\r\n" + 
                     this.dtend.toString() + "\r\n" + 
-                    this.rr.toString(); + "\r\n" + 
+                    this.rr.toString() + "\r\n" + 
                     "END:VEVENT";
 
         return str;

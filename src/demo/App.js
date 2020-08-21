@@ -35,16 +35,16 @@ class App extends Component {
     return (
       <div>
         <div className="app-navbar">
-          <a href="https://github.com/fafruch/react-rrule-generator">
+          <a href="https://github.com/mihaylovin/react-rrule-generator">
             &lt; go back to
             {' '}
             <img className="app-navbar-ghlogo" src={githubLogo} alt="Github logo" />
-            /fafruch
+            /mihaylovin
           </a>
 
           <iframe
             title="github-star"
-            src="https://ghbtns.com/github-btn.html?user=fafruch&repo=react-rrule-generator&type=star&count=true&size=medium"
+            src="https://ghbtns.com/github-btn.html?user=mihaylovin&repo=react-rrule-generator&type=star&count=true&size=medium"
             frameBorder="0"
             scrolling="0"
             width="78px"

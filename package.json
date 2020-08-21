@@ -2,6 +2,9 @@
   "name": "react-rrule-generator",
   "version": "1.2.0",
   "author": "Filip Duczyminski <fduczyminski@gmail.com>",
+  "maintainers": [
+    "Nikolay Mihaylov"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mihaylovin/react-rrule-generator.git"
@@ -19,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/mihaylovin/react-rrule-generator/issues"
   },
-  "homepage": "https://fafruch.github.io/react-rrule-generator",
+  "homepage": "https://mihaylovin.github.io/react-rrule-generator",
   "devDependencies": {
     "autoprefixer": "7.1.2",
     "babel-cli": "^6.26.0",
