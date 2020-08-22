@@ -4,7 +4,23 @@ class Summary {
     }
 
     toString() {
-        return "SUMMARY:" + this.summary;
+        return Summary.getLabel() + ":" + this.summary;
+    }
+
+    toObject() {
+        return {
+            summary: this.summary
+        }
+    }
+
+    static getLabel() {
+        return "SUMMARY";
+    }
+
+    static parse(summaryLine) {
+        const summaryParts = summaryLine.split(/:/);
+
+        return {summary: summaryParts[1] || ""};
     }
 }
 

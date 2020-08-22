@@ -52,10 +52,7 @@ const configureState = (config = {}, calendarComponent, id) => {
       monthly: {
         mode: configureMonthly(),
         interval: 1,
-        on: {
-          day: 1,
-        },
-        days: [],
+        days: [1],
         onThe: {
           day: 'Monday',
           which: 'First',

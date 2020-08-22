@@ -6,7 +6,6 @@ import translateLabel from '../../../utils/translateLabel';
 const RepeatMonthlyOn = ({
   id,
   mode,
-  on,
   days,
   hasMoreModes,
   handleChange,
@@ -52,10 +51,9 @@ const RepeatMonthlyOn = ({
 
       let lines = [[]];
       let currentLine = 0;
-      console.log(dayCheckboxes);
 
       dayCheckboxes.forEach((d, i) => {
-        console.log(d & lineLength);
+        
         if (i % lineLength != 0) {
           lines[currentLine].push(d);
         } else {
@@ -64,10 +62,8 @@ const RepeatMonthlyOn = ({
         }
       })
 
-    console.log(lines);
-
-    return lines.map(line => (
-      <div className="btn-group btn-group-toggle offset-sm-2">
+    return lines.map((line, i) => (
+      <div key={i} className="btn-group btn-group-toggle offset-sm-2">
         {line}
       </div>
     ));
@@ -114,7 +110,7 @@ const RepeatMonthlyOn = ({
 RepeatMonthlyOn.propTypes = {
   id: PropTypes.string.isRequired,
   mode: PropTypes.oneOf(['on', 'on the']).isRequired,
-  on: PropTypes.arrayOf(PropTypes.number).isRequired,
+  days: PropTypes.arrayOf(PropTypes.number).isRequired,
   hasMoreModes: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,

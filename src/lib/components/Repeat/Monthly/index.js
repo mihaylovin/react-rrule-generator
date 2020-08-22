@@ -46,7 +46,6 @@ const RepeatMonthly = ({
         <RepeatMonthlyOn
           id={`${id}-on`}
           mode={mode}
-          on={on}
           days={days}
           hasMoreModes={!isTheOnlyOneMode('on')}
           handleChange={handleChange}
@@ -73,7 +72,7 @@ RepeatMonthly.propTypes = {
   monthly: PropTypes.shape({
     mode: PropTypes.oneOf(['on', 'on the']).isRequired,
     interval: PropTypes.number.isRequired,
-    on: PropTypes.object.isRequired,
+    days: PropTypes.arrayOf(PropTypes.number).isRequired,
     onThe: PropTypes.object.isRequired,
     options: PropTypes.shape({
       modes: PropTypes.oneOf(['on', 'on the']),

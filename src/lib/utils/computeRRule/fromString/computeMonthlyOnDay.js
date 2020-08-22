@@ -3,7 +3,11 @@ const computeMonthlyOnDay = (data, rruleObj) => {
     return data.repeat.monthly.days;
   }
 
-  return rruleObj.bymonthday;
+  if (Array.isArray(rruleObj.bymonthday)) {
+    return rruleObj.bymonthday;
+  }
+
+  return [rruleObj.bymonthday];
 };
 
 export default computeMonthlyOnDay;

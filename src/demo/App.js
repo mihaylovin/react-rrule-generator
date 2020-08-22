@@ -64,7 +64,7 @@ class App extends Component {
 
           <ReactRRuleGenerator
             onChange={this.handleChange}
-            //value={this.state.rrule}
+            value={this.state.rrule}
             config={{
               hideStart: false,
             }}

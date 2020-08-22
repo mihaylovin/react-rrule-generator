@@ -1,4 +1,4 @@
-import { rrulestr as RRuleObjectFromString } from 'rrule';
+import Vevent from '../../../vevent/index';
 import moment from 'moment';
 
 import { DATE_TIME_FORMAT, DATE_FORMAT } from '../../../constants/index';
@@ -33,7 +33,8 @@ const computeRRule = (data, rrule) => {
 
   let newDataObj;
   try {
-    const rruleObj = RRuleObjectFromString(rrule).origOptions;
+    const rruleObj = Vevent.parse(rrule);
+    console.log(rruleObj);
 
     newDataObj = {
       ...data,
